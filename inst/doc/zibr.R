@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -8,10 +8,11 @@ knitr::opts_chunk$set(
 library(ZIBR)
 library(dplyr)
 library(nlme)
+library(tibble)
 
 set.seed(19683)
 
-## ---- echo=FALSE, out.width="75%", fig.cap="Details of the statistical model"----
+## ----echo=FALSE, out.width="75%", fig.cap="Details of the statistical model"----
 knitr::include_graphics("zibr_stat_model.png")
 
 ## -----------------------------------------------------------------------------
@@ -116,14 +117,14 @@ sample.info <- read.csv(sample.info.file, row.names = 1)
 #### Time, antiTNF+EEN
 reg.cov <-
   data.frame(Sample = rownames(taxa.data), stringsAsFactors = FALSE) %>%
-  left_join(add_rownames(sample.info, var = "Sample"), by = "Sample") %>%
+  left_join(rownames_to_column(sample.info, var = "Sample"), by = "Sample") %>%
   dplyr::filter(Treatment.Specific != "PEN") %>%
   dplyr::select(Sample, Time, Subject, Response, Treatment.Specific) %>%
   group_by(Subject) %>%
   summarise(count = n()) %>%
   dplyr::filter(count == 4) %>%
   dplyr::select(Subject) %>%
-  left_join(add_rownames(sample.info, var = "Sample"), by = "Subject") %>%
+  left_join(rownames_to_column(sample.info, var = "Sample"), by = "Subject") %>%
   mutate(Treat = ifelse(Treatment.Specific == "antiTNF", 1, 0)) %>%
   dplyr::select(Sample, Subject, Time, Response, Treat) %>%
   dplyr::mutate(Subject = paste("S", Subject, sep = "")) %>%
@@ -191,14 +192,14 @@ for (spe in spe.all) {
 #### adjust p values
 p.species.zibr <- t(as.data.frame(p.species.list.zibr))
 p.species.zibr.adj <-
-  add_rownames(as.data.frame(p.species.zibr), var = "Species") %>% mutate_each(funs(p.adjust(., "fdr")), -Species)
+  rownames_to_column(as.data.frame(p.species.zibr), var = "Species") %>% mutate(across(-Species, ~p.adjust(., "fdr")))
 
 # write.csv(p.species.zibr.adj,file=paste('4_Results/Real_Data_Estimation_Results_antiTNF_EEN_ZIBR.csv',sep=''))
 
 
 p.species.lme <- t(as.data.frame(p.species.list.lme))
 p.species.lme.adj <-
-  add_rownames(as.data.frame(p.species.lme), var = "Species") %>% mutate_each(funs(p.adjust(., "fdr")), -Species)
+  rownames_to_column(as.data.frame(p.species.lme), var = "Species") %>% mutate(across(-Species, ~p.adjust(., "fdr")))
 
 # write.csv(p.species.lme.adj,file=paste('4_Results/Real_Data_Estimation_Results_antiTNF_EEN_LME.csv',sep=''))
 

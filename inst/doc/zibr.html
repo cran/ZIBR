@@ -353,13 +353,15 @@ with Random effects</h1>
 <span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
 <span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;nlme&#39;</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:dplyr&#39;:</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt;     collapse</span></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">19683</span>)</span></code></pre></div>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; Warning: package &#39;nlme&#39; was built under R version 4.3.3</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;nlme&#39;</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:dplyr&#39;:</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt;     collapse</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">19683</span>)</span></code></pre></div>
 <p>The longitudinal microbiome compositional data are highly skewed,
 bounded in <span class="math inline">\([0,1)\)</span>, and often sparse
 with many zeros. In addition, the observations from repeated measures
@@ -549,14 +551,14 @@ treament-time interaction in the covariates.</p>
 <span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co">#&gt; $beta_est_table</span></span>
 <span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co">#&gt;             Estimate    Pvalue</span></span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt; intersept -2.7860540 0.0000000</span></span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co">#&gt; Treatment -0.3233427 0.2063002</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt; intersept -2.7860545 0.0000000</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co">#&gt; Treatment -0.3233416 0.2063002</span></span>
 <span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co">#&gt; $beta_s2_est</span></span>
-<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="co">#&gt; [1] 0.5389234</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="co">#&gt; [1] 0.5389235</span></span>
 <span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a><span class="co">#&gt; $beta_v_est</span></span>
-<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="co">#&gt; [1] 7.622384</span></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="co">#&gt; [1] 7.622389</span></span>
 <span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a><span class="co">#&gt; $loglikelihood</span></span>
 <span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="co">#&gt; [1] 321.9018</span></span>
@@ -655,14 +657,14 @@ two treatments, considering all time points.</p>
 <span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="do">#### Time, antiTNF+EEN</span></span>
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>reg.cov <span class="ot">&lt;-</span></span>
 <span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Sample =</span> <span class="fu">rownames</span>(taxa.data), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="fu">left_join</span>(<span class="fu">add_rownames</span>(sample.info, <span class="at">var =</span> <span class="st">&quot;Sample&quot;</span>), <span class="at">by =</span> <span class="st">&quot;Sample&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="fu">left_join</span>(<span class="fu">rownames_to_column</span>(sample.info, <span class="at">var =</span> <span class="st">&quot;Sample&quot;</span>), <span class="at">by =</span> <span class="st">&quot;Sample&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Treatment.Specific <span class="sc">!=</span> <span class="st">&quot;PEN&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Sample, Time, Subject, Response, Treatment.Specific) <span class="sc">%&gt;%</span></span>
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  <span class="fu">group_by</span>(Subject) <span class="sc">%&gt;%</span></span>
 <span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
 <span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(count <span class="sc">==</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Subject) <span class="sc">%&gt;%</span></span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>  <span class="fu">left_join</span>(<span class="fu">add_rownames</span>(sample.info, <span class="at">var =</span> <span class="st">&quot;Sample&quot;</span>), <span class="at">by =</span> <span class="st">&quot;Subject&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>  <span class="fu">left_join</span>(<span class="fu">rownames_to_column</span>(sample.info, <span class="at">var =</span> <span class="st">&quot;Sample&quot;</span>), <span class="at">by =</span> <span class="st">&quot;Subject&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Treat =</span> <span class="fu">ifelse</span>(Treatment.Specific <span class="sc">==</span> <span class="st">&quot;antiTNF&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Sample, Subject, Time, Response, Treat) <span class="sc">%&gt;%</span></span>
 <span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Subject =</span> <span class="fu">paste</span>(<span class="st">&quot;S&quot;</span>, Subject, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)) <span class="sc">%&gt;%</span></span>
@@ -672,168 +674,109 @@ two treatments, considering all time points.</p>
 <span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>                                            <span class="fu">ifelse</span>(Time <span class="sc">==</span> <span class="st">&quot;4&quot;</span>, <span class="dv">8</span>, <span class="cn">NA</span>))))) <span class="sc">%&gt;%</span></span>
 <span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Time.X.Treatment =</span> Time <span class="sc">*</span> Treat) <span class="sc">%&gt;%</span></span>
 <span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="co">#&gt; Warning: `add_rownames()` was deprecated in dplyr 1.0.0.</span></span>
-<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="co">#&gt; i Please use `tibble::rownames_to_column()` instead.</span></span>
-<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
-<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a><span class="co">#&gt; Warning: `add_rownames()` was deprecated in dplyr 1.0.0.</span></span>
-<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a><span class="co">#&gt; i Please use `tibble::rownames_to_column()` instead.</span></span>
-<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
-<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a></span>
-<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a><span class="do">### take out first time point</span></span>
-<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a>reg.cov.t1 <span class="ot">&lt;-</span> <span class="fu">subset</span>(reg.cov, Time <span class="sc">==</span> <span class="dv">0</span>)</span>
-<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a><span class="fu">rownames</span>(reg.cov.t1) <span class="ot">&lt;-</span> reg.cov.t1<span class="sc">$</span>Subject</span>
-<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a>reg.cov.t234 <span class="ot">&lt;-</span> <span class="fu">subset</span>(reg.cov, Time <span class="sc">!=</span> <span class="dv">0</span>)</span>
-<span id="cb10-35"><a href="#cb10-35" tabindex="-1"></a>reg.cov.t234 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-36"><a href="#cb10-36" tabindex="-1"></a>  <span class="at">baseline.sample =</span> reg.cov.t1[reg.cov.t234<span class="sc">$</span>Subject, <span class="st">&quot;Sample&quot;</span>],</span>
-<span id="cb10-37"><a href="#cb10-37" tabindex="-1"></a>  <span class="at">baseline.subject =</span> reg.cov.t1[reg.cov.t234<span class="sc">$</span>Subject, <span class="st">&quot;Subject&quot;</span>],</span>
-<span id="cb10-38"><a href="#cb10-38" tabindex="-1"></a>  reg.cov.t234,</span>
-<span id="cb10-39"><a href="#cb10-39" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
-<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a>)</span>
-<span id="cb10-41"><a href="#cb10-41" tabindex="-1"></a></span>
-<span id="cb10-42"><a href="#cb10-42" tabindex="-1"></a><span class="do">#### Fit ZIBR model on the real data</span></span>
-<span id="cb10-43"><a href="#cb10-43" tabindex="-1"></a>spe.all <span class="ot">&lt;-</span> <span class="fu">colnames</span>(taxa.data)</span>
-<span id="cb10-44"><a href="#cb10-44" tabindex="-1"></a>p.species.list.zibr <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb10-45"><a href="#cb10-45" tabindex="-1"></a>p.species.list.lme <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb10-46"><a href="#cb10-46" tabindex="-1"></a><span class="cf">for</span> (spe <span class="cf">in</span> spe.all) {</span>
-<span id="cb10-47"><a href="#cb10-47" tabindex="-1"></a>  <span class="co"># spe = &#39;g__Collinsella&#39;</span></span>
-<span id="cb10-48"><a href="#cb10-48" tabindex="-1"></a>  <span class="do">###### create covariates</span></span>
-<span id="cb10-49"><a href="#cb10-49" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-50"><a href="#cb10-50" tabindex="-1"></a>    <span class="at">Baseline =</span> taxa.data[reg.cov.t234<span class="sc">$</span>baseline.sample, spe] <span class="sc">/</span> <span class="dv">100</span>,</span>
-<span id="cb10-51"><a href="#cb10-51" tabindex="-1"></a>    <span class="co"># reg.cov.t234[,c(&#39;log.days&#39;,&#39;Delivery&#39;,&#39;Delivery.X.log.days&#39;)]</span></span>
-<span id="cb10-52"><a href="#cb10-52" tabindex="-1"></a>    reg.cov.t234[, <span class="fu">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Treat&quot;</span>)]</span>
-<span id="cb10-53"><a href="#cb10-53" tabindex="-1"></a>  )</span>
-<span id="cb10-54"><a href="#cb10-54" tabindex="-1"></a>  <span class="fu">rownames</span>(X) <span class="ot">&lt;-</span> reg.cov.t234<span class="sc">$</span>Sample</span>
-<span id="cb10-55"><a href="#cb10-55" tabindex="-1"></a>  Z <span class="ot">&lt;-</span> X</span>
-<span id="cb10-56"><a href="#cb10-56" tabindex="-1"></a>  subject.ind <span class="ot">&lt;-</span> reg.cov.t234<span class="sc">$</span>Subject</span>
-<span id="cb10-57"><a href="#cb10-57" tabindex="-1"></a>  time.ind <span class="ot">&lt;-</span> reg.cov.t234<span class="sc">$</span>Time</span>
-<span id="cb10-58"><a href="#cb10-58" tabindex="-1"></a>  <span class="do">####</span></span>
-<span id="cb10-59"><a href="#cb10-59" tabindex="-1"></a>  <span class="co"># cat(spe,&#39;\n&#39;)</span></span>
-<span id="cb10-60"><a href="#cb10-60" tabindex="-1"></a>  Y <span class="ot">&lt;-</span> taxa.data[reg.cov.t234<span class="sc">$</span>Sample, spe] <span class="sc">/</span> <span class="dv">100</span></span>
-<span id="cb10-61"><a href="#cb10-61" tabindex="-1"></a>  <span class="co"># cat(&#39;Zeros/All&#39;,sum(Y==0),&#39;/&#39;,length(Y),&#39;\n&#39;)</span></span>
-<span id="cb10-62"><a href="#cb10-62" tabindex="-1"></a>  <span class="do">####################</span></span>
-<span id="cb10-63"><a href="#cb10-63" tabindex="-1"></a>  <span class="do">## fit linear random effect model with arcsin square transformation on Y</span></span>
-<span id="cb10-64"><a href="#cb10-64" tabindex="-1"></a>  tdata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Y.tran =</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(Y)), X, <span class="at">SID =</span> subject.ind)</span>
-<span id="cb10-65"><a href="#cb10-65" tabindex="-1"></a>  lme.fit <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(Y.tran <span class="sc">~</span> Baseline <span class="sc">+</span> Time <span class="sc">+</span> Treat, <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">|</span> SID, <span class="at">data =</span> tdata)</span>
-<span id="cb10-66"><a href="#cb10-66" tabindex="-1"></a>  coef.mat <span class="ot">&lt;-</span> <span class="fu">summary</span>(lme.fit)<span class="sc">$</span>tTable[<span class="sc">-</span><span class="dv">1</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)]</span>
-<span id="cb10-67"><a href="#cb10-67" tabindex="-1"></a>  p.species.list.lme[[spe]] <span class="ot">&lt;-</span> coef.mat[, <span class="dv">2</span>]</span>
-<span id="cb10-68"><a href="#cb10-68" tabindex="-1"></a>  <span class="do">###################</span></span>
-<span id="cb10-69"><a href="#cb10-69" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">sum</span>(Y <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">||</span> <span class="fu">sum</span>(Y <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">||</span> <span class="fu">max</span>(Y) <span class="sc">&lt;</span> <span class="fl">0.01</span>) {</span>
-<span id="cb10-70"><a href="#cb10-70" tabindex="-1"></a>    p.species.list.zibr[[spe]] <span class="ot">&lt;-</span> p.species.list.lme[[spe]]</span>
-<span id="cb10-71"><a href="#cb10-71" tabindex="-1"></a>    <span class="cf">next</span></span>
-<span id="cb10-72"><a href="#cb10-72" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb10-73"><a href="#cb10-73" tabindex="-1"></a>    est <span class="ot">&lt;-</span> <span class="fu">zibr</span>(</span>
-<span id="cb10-74"><a href="#cb10-74" tabindex="-1"></a>      <span class="at">logistic_cov =</span> X, <span class="at">beta_cov =</span> Z, <span class="at">Y =</span> Y,</span>
-<span id="cb10-75"><a href="#cb10-75" tabindex="-1"></a>      <span class="at">subject_ind =</span> subject.ind,</span>
-<span id="cb10-76"><a href="#cb10-76" tabindex="-1"></a>      <span class="at">time_ind =</span> time.ind,</span>
-<span id="cb10-77"><a href="#cb10-77" tabindex="-1"></a>      <span class="at">quad_n =</span> <span class="dv">30</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span></span>
-<span id="cb10-78"><a href="#cb10-78" tabindex="-1"></a>    )</span>
-<span id="cb10-79"><a href="#cb10-79" tabindex="-1"></a>    p.species.list.zibr[[spe]] <span class="ot">&lt;-</span> est<span class="sc">$</span>joint.p</span>
-<span id="cb10-80"><a href="#cb10-80" tabindex="-1"></a>  }</span>
-<span id="cb10-81"><a href="#cb10-81" tabindex="-1"></a>  <span class="co"># break</span></span>
-<span id="cb10-82"><a href="#cb10-82" tabindex="-1"></a>}</span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="do">### take out first time point</span></span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>reg.cov.t1 <span class="ot">&lt;-</span> <span class="fu">subset</span>(reg.cov, Time <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="fu">rownames</span>(reg.cov.t1) <span class="ot">&lt;-</span> reg.cov.t1<span class="sc">$</span>Subject</span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>reg.cov.t234 <span class="ot">&lt;-</span> <span class="fu">subset</span>(reg.cov, Time <span class="sc">!=</span> <span class="dv">0</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a>reg.cov.t234 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a>  <span class="at">baseline.sample =</span> reg.cov.t1[reg.cov.t234<span class="sc">$</span>Subject, <span class="st">&quot;Sample&quot;</span>],</span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a>  <span class="at">baseline.subject =</span> reg.cov.t1[reg.cov.t234<span class="sc">$</span>Subject, <span class="st">&quot;Subject&quot;</span>],</span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a>  reg.cov.t234,</span>
+<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a>)</span>
+<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a><span class="do">#### Fit ZIBR model on the real data</span></span>
+<span id="cb10-35"><a href="#cb10-35" tabindex="-1"></a>spe.all <span class="ot">&lt;-</span> <span class="fu">colnames</span>(taxa.data)</span>
+<span id="cb10-36"><a href="#cb10-36" tabindex="-1"></a>p.species.list.zibr <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb10-37"><a href="#cb10-37" tabindex="-1"></a>p.species.list.lme <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb10-38"><a href="#cb10-38" tabindex="-1"></a><span class="cf">for</span> (spe <span class="cf">in</span> spe.all) {</span>
+<span id="cb10-39"><a href="#cb10-39" tabindex="-1"></a>  <span class="co"># spe = &#39;g__Collinsella&#39;</span></span>
+<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a>  <span class="do">###### create covariates</span></span>
+<span id="cb10-41"><a href="#cb10-41" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-42"><a href="#cb10-42" tabindex="-1"></a>    <span class="at">Baseline =</span> taxa.data[reg.cov.t234<span class="sc">$</span>baseline.sample, spe] <span class="sc">/</span> <span class="dv">100</span>,</span>
+<span id="cb10-43"><a href="#cb10-43" tabindex="-1"></a>    <span class="co"># reg.cov.t234[,c(&#39;log.days&#39;,&#39;Delivery&#39;,&#39;Delivery.X.log.days&#39;)]</span></span>
+<span id="cb10-44"><a href="#cb10-44" tabindex="-1"></a>    reg.cov.t234[, <span class="fu">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Treat&quot;</span>)]</span>
+<span id="cb10-45"><a href="#cb10-45" tabindex="-1"></a>  )</span>
+<span id="cb10-46"><a href="#cb10-46" tabindex="-1"></a>  <span class="fu">rownames</span>(X) <span class="ot">&lt;-</span> reg.cov.t234<span class="sc">$</span>Sample</span>
+<span id="cb10-47"><a href="#cb10-47" tabindex="-1"></a>  Z <span class="ot">&lt;-</span> X</span>
+<span id="cb10-48"><a href="#cb10-48" tabindex="-1"></a>  subject.ind <span class="ot">&lt;-</span> reg.cov.t234<span class="sc">$</span>Subject</span>
+<span id="cb10-49"><a href="#cb10-49" tabindex="-1"></a>  time.ind <span class="ot">&lt;-</span> reg.cov.t234<span class="sc">$</span>Time</span>
+<span id="cb10-50"><a href="#cb10-50" tabindex="-1"></a>  <span class="do">####</span></span>
+<span id="cb10-51"><a href="#cb10-51" tabindex="-1"></a>  <span class="co"># cat(spe,&#39;\n&#39;)</span></span>
+<span id="cb10-52"><a href="#cb10-52" tabindex="-1"></a>  Y <span class="ot">&lt;-</span> taxa.data[reg.cov.t234<span class="sc">$</span>Sample, spe] <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb10-53"><a href="#cb10-53" tabindex="-1"></a>  <span class="co"># cat(&#39;Zeros/All&#39;,sum(Y==0),&#39;/&#39;,length(Y),&#39;\n&#39;)</span></span>
+<span id="cb10-54"><a href="#cb10-54" tabindex="-1"></a>  <span class="do">####################</span></span>
+<span id="cb10-55"><a href="#cb10-55" tabindex="-1"></a>  <span class="do">## fit linear random effect model with arcsin square transformation on Y</span></span>
+<span id="cb10-56"><a href="#cb10-56" tabindex="-1"></a>  tdata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Y.tran =</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(Y)), X, <span class="at">SID =</span> subject.ind)</span>
+<span id="cb10-57"><a href="#cb10-57" tabindex="-1"></a>  lme.fit <span class="ot">&lt;-</span> nlme<span class="sc">::</span><span class="fu">lme</span>(Y.tran <span class="sc">~</span> Baseline <span class="sc">+</span> Time <span class="sc">+</span> Treat, <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span> <span class="sc">|</span> SID, <span class="at">data =</span> tdata)</span>
+<span id="cb10-58"><a href="#cb10-58" tabindex="-1"></a>  coef.mat <span class="ot">&lt;-</span> <span class="fu">summary</span>(lme.fit)<span class="sc">$</span>tTable[<span class="sc">-</span><span class="dv">1</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)]</span>
+<span id="cb10-59"><a href="#cb10-59" tabindex="-1"></a>  p.species.list.lme[[spe]] <span class="ot">&lt;-</span> coef.mat[, <span class="dv">2</span>]</span>
+<span id="cb10-60"><a href="#cb10-60" tabindex="-1"></a>  <span class="do">###################</span></span>
+<span id="cb10-61"><a href="#cb10-61" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">sum</span>(Y <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">||</span> <span class="fu">sum</span>(Y <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">||</span> <span class="fu">max</span>(Y) <span class="sc">&lt;</span> <span class="fl">0.01</span>) {</span>
+<span id="cb10-62"><a href="#cb10-62" tabindex="-1"></a>    p.species.list.zibr[[spe]] <span class="ot">&lt;-</span> p.species.list.lme[[spe]]</span>
+<span id="cb10-63"><a href="#cb10-63" tabindex="-1"></a>    <span class="cf">next</span></span>
+<span id="cb10-64"><a href="#cb10-64" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb10-65"><a href="#cb10-65" tabindex="-1"></a>    est <span class="ot">&lt;-</span> <span class="fu">zibr</span>(</span>
+<span id="cb10-66"><a href="#cb10-66" tabindex="-1"></a>      <span class="at">logistic_cov =</span> X, <span class="at">beta_cov =</span> Z, <span class="at">Y =</span> Y,</span>
+<span id="cb10-67"><a href="#cb10-67" tabindex="-1"></a>      <span class="at">subject_ind =</span> subject.ind,</span>
+<span id="cb10-68"><a href="#cb10-68" tabindex="-1"></a>      <span class="at">time_ind =</span> time.ind,</span>
+<span id="cb10-69"><a href="#cb10-69" tabindex="-1"></a>      <span class="at">quad_n =</span> <span class="dv">30</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span></span>
+<span id="cb10-70"><a href="#cb10-70" tabindex="-1"></a>    )</span>
+<span id="cb10-71"><a href="#cb10-71" tabindex="-1"></a>    p.species.list.zibr[[spe]] <span class="ot">&lt;-</span> est<span class="sc">$</span>joint.p</span>
+<span id="cb10-72"><a href="#cb10-72" tabindex="-1"></a>  }</span>
+<span id="cb10-73"><a href="#cb10-73" tabindex="-1"></a>  <span class="co"># break</span></span>
+<span id="cb10-74"><a href="#cb10-74" tabindex="-1"></a>}</span>
+<span id="cb10-75"><a href="#cb10-75" tabindex="-1"></a></span>
+<span id="cb10-76"><a href="#cb10-76" tabindex="-1"></a></span>
+<span id="cb10-77"><a href="#cb10-77" tabindex="-1"></a><span class="do">#### adjust p values</span></span>
+<span id="cb10-78"><a href="#cb10-78" tabindex="-1"></a>p.species.zibr <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.data.frame</span>(p.species.list.zibr))</span>
+<span id="cb10-79"><a href="#cb10-79" tabindex="-1"></a>p.species.zibr.adj <span class="ot">&lt;-</span></span>
+<span id="cb10-80"><a href="#cb10-80" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="fu">as.data.frame</span>(p.species.zibr), <span class="at">var =</span> <span class="st">&quot;Species&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Species, <span class="sc">~</span><span class="fu">p.adjust</span>(., <span class="st">&quot;fdr&quot;</span>)))</span>
+<span id="cb10-81"><a href="#cb10-81" tabindex="-1"></a></span>
+<span id="cb10-82"><a href="#cb10-82" tabindex="-1"></a><span class="co"># write.csv(p.species.zibr.adj,file=paste(&#39;4_Results/Real_Data_Estimation_Results_antiTNF_EEN_ZIBR.csv&#39;,sep=&#39;&#39;))</span></span>
 <span id="cb10-83"><a href="#cb10-83" tabindex="-1"></a></span>
 <span id="cb10-84"><a href="#cb10-84" tabindex="-1"></a></span>
-<span id="cb10-85"><a href="#cb10-85" tabindex="-1"></a><span class="do">#### adjust p values</span></span>
-<span id="cb10-86"><a href="#cb10-86" tabindex="-1"></a>p.species.zibr <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.data.frame</span>(p.species.list.zibr))</span>
-<span id="cb10-87"><a href="#cb10-87" tabindex="-1"></a>p.species.zibr.adj <span class="ot">&lt;-</span></span>
-<span id="cb10-88"><a href="#cb10-88" tabindex="-1"></a>  <span class="fu">add_rownames</span>(<span class="fu">as.data.frame</span>(p.species.zibr), <span class="at">var =</span> <span class="st">&quot;Species&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate_each</span>(<span class="fu">funs</span>(<span class="fu">p.adjust</span>(., <span class="st">&quot;fdr&quot;</span>)), <span class="sc">-</span>Species)</span>
-<span id="cb10-89"><a href="#cb10-89" tabindex="-1"></a><span class="co">#&gt; Warning: `funs()` was deprecated in dplyr 0.8.0.</span></span>
-<span id="cb10-90"><a href="#cb10-90" tabindex="-1"></a><span class="co">#&gt; i Please use a list of either functions or lambdas:</span></span>
-<span id="cb10-91"><a href="#cb10-91" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-92"><a href="#cb10-92" tabindex="-1"></a><span class="co">#&gt; # Simple named list: list(mean = mean, median = median)</span></span>
-<span id="cb10-93"><a href="#cb10-93" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-94"><a href="#cb10-94" tabindex="-1"></a><span class="co">#&gt; # Auto named with `tibble::lst()`: tibble::lst(mean, median)</span></span>
-<span id="cb10-95"><a href="#cb10-95" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-96"><a href="#cb10-96" tabindex="-1"></a><span class="co">#&gt; # Using lambdas list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))</span></span>
-<span id="cb10-97"><a href="#cb10-97" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span id="cb10-98"><a href="#cb10-98" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
-<span id="cb10-99"><a href="#cb10-99" tabindex="-1"></a><span class="co">#&gt; Warning: `mutate_each_()` was deprecated in dplyr 0.7.0.</span></span>
-<span id="cb10-100"><a href="#cb10-100" tabindex="-1"></a><span class="co">#&gt; i Please use `across()` instead.</span></span>
-<span id="cb10-101"><a href="#cb10-101" tabindex="-1"></a><span class="co">#&gt; i The deprecated feature was likely used in the dplyr package.</span></span>
-<span id="cb10-102"><a href="#cb10-102" tabindex="-1"></a><span class="co">#&gt;   Please report the issue at &lt;https://github.com/tidyverse/dplyr/issues&gt;.</span></span>
-<span id="cb10-103"><a href="#cb10-103" tabindex="-1"></a><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
-<span id="cb10-104"><a href="#cb10-104" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span id="cb10-105"><a href="#cb10-105" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
-<span id="cb10-106"><a href="#cb10-106" tabindex="-1"></a><span class="co">#&gt; Warning: `add_rownames()` was deprecated in dplyr 1.0.0.</span></span>
-<span id="cb10-107"><a href="#cb10-107" tabindex="-1"></a><span class="co">#&gt; i Please use `tibble::rownames_to_column()` instead.</span></span>
-<span id="cb10-108"><a href="#cb10-108" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span id="cb10-109"><a href="#cb10-109" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
-<span id="cb10-110"><a href="#cb10-110" tabindex="-1"></a></span>
-<span id="cb10-111"><a href="#cb10-111" tabindex="-1"></a><span class="co"># write.csv(p.species.zibr.adj,file=paste(&#39;4_Results/Real_Data_Estimation_Results_antiTNF_EEN_ZIBR.csv&#39;,sep=&#39;&#39;))</span></span>
-<span id="cb10-112"><a href="#cb10-112" tabindex="-1"></a></span>
-<span id="cb10-113"><a href="#cb10-113" tabindex="-1"></a></span>
-<span id="cb10-114"><a href="#cb10-114" tabindex="-1"></a>p.species.lme <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.data.frame</span>(p.species.list.lme))</span>
-<span id="cb10-115"><a href="#cb10-115" tabindex="-1"></a>p.species.lme.adj <span class="ot">&lt;-</span></span>
-<span id="cb10-116"><a href="#cb10-116" tabindex="-1"></a>  <span class="fu">add_rownames</span>(<span class="fu">as.data.frame</span>(p.species.lme), <span class="at">var =</span> <span class="st">&quot;Species&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate_each</span>(<span class="fu">funs</span>(<span class="fu">p.adjust</span>(., <span class="st">&quot;fdr&quot;</span>)), <span class="sc">-</span>Species)</span>
-<span id="cb10-117"><a href="#cb10-117" tabindex="-1"></a><span class="co">#&gt; Warning: `funs()` was deprecated in dplyr 0.8.0.</span></span>
-<span id="cb10-118"><a href="#cb10-118" tabindex="-1"></a><span class="co">#&gt; i Please use a list of either functions or lambdas:</span></span>
-<span id="cb10-119"><a href="#cb10-119" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-120"><a href="#cb10-120" tabindex="-1"></a><span class="co">#&gt; # Simple named list: list(mean = mean, median = median)</span></span>
-<span id="cb10-121"><a href="#cb10-121" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-122"><a href="#cb10-122" tabindex="-1"></a><span class="co">#&gt; # Auto named with `tibble::lst()`: tibble::lst(mean, median)</span></span>
-<span id="cb10-123"><a href="#cb10-123" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-124"><a href="#cb10-124" tabindex="-1"></a><span class="co">#&gt; # Using lambdas list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))</span></span>
-<span id="cb10-125"><a href="#cb10-125" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span id="cb10-126"><a href="#cb10-126" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
-<span id="cb10-127"><a href="#cb10-127" tabindex="-1"></a><span class="co">#&gt; Warning: `add_rownames()` was deprecated in dplyr 1.0.0.</span></span>
-<span id="cb10-128"><a href="#cb10-128" tabindex="-1"></a><span class="co">#&gt; i Please use `tibble::rownames_to_column()` instead.</span></span>
-<span id="cb10-129"><a href="#cb10-129" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span id="cb10-130"><a href="#cb10-130" tabindex="-1"></a><span class="co">#&gt; generated.</span></span>
-<span id="cb10-131"><a href="#cb10-131" tabindex="-1"></a></span>
-<span id="cb10-132"><a href="#cb10-132" tabindex="-1"></a><span class="co"># write.csv(p.species.lme.adj,file=paste(&#39;4_Results/Real_Data_Estimation_Results_antiTNF_EEN_LME.csv&#39;,sep=&#39;&#39;))</span></span>
-<span id="cb10-133"><a href="#cb10-133" tabindex="-1"></a></span>
-<span id="cb10-134"><a href="#cb10-134" tabindex="-1"></a><span class="do">####</span></span>
-<span id="cb10-135"><a href="#cb10-135" tabindex="-1"></a><span class="fu">intersect</span>(</span>
-<span id="cb10-136"><a href="#cb10-136" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
-<span id="cb10-137"><a href="#cb10-137" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
-<span id="cb10-138"><a href="#cb10-138" tabindex="-1"></a>)</span>
-<span id="cb10-139"><a href="#cb10-139" tabindex="-1"></a><span class="co">#&gt; # A tibble: 0 x 1</span></span>
-<span id="cb10-140"><a href="#cb10-140" tabindex="-1"></a><span class="co">#&gt; # i 1 variable: Species &lt;chr&gt;</span></span>
-<span id="cb10-141"><a href="#cb10-141" tabindex="-1"></a><span class="fu">setdiff</span>(</span>
-<span id="cb10-142"><a href="#cb10-142" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
-<span id="cb10-143"><a href="#cb10-143" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
-<span id="cb10-144"><a href="#cb10-144" tabindex="-1"></a>)</span>
-<span id="cb10-145"><a href="#cb10-145" tabindex="-1"></a><span class="co">#&gt; # A tibble: 7 x 1</span></span>
-<span id="cb10-146"><a href="#cb10-146" tabindex="-1"></a><span class="co">#&gt;   Species            </span></span>
-<span id="cb10-147"><a href="#cb10-147" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;              </span></span>
-<span id="cb10-148"><a href="#cb10-148" tabindex="-1"></a><span class="co">#&gt; 1 g__Ruminococcus    </span></span>
-<span id="cb10-149"><a href="#cb10-149" tabindex="-1"></a><span class="co">#&gt; 2 g__Faecalibacterium</span></span>
-<span id="cb10-150"><a href="#cb10-150" tabindex="-1"></a><span class="co">#&gt; 3 g__Bifidobacterium </span></span>
-<span id="cb10-151"><a href="#cb10-151" tabindex="-1"></a><span class="co">#&gt; 4 g__Dialister       </span></span>
-<span id="cb10-152"><a href="#cb10-152" tabindex="-1"></a><span class="co">#&gt; 5 g__Streptococcus   </span></span>
-<span id="cb10-153"><a href="#cb10-153" tabindex="-1"></a><span class="co">#&gt; 6 g__Haemophilus     </span></span>
-<span id="cb10-154"><a href="#cb10-154" tabindex="-1"></a><span class="co">#&gt; 7 g__Alistipes</span></span>
-<span id="cb10-155"><a href="#cb10-155" tabindex="-1"></a><span class="fu">setdiff</span>(</span>
-<span id="cb10-156"><a href="#cb10-156" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
-<span id="cb10-157"><a href="#cb10-157" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
-<span id="cb10-158"><a href="#cb10-158" tabindex="-1"></a>)</span>
-<span id="cb10-159"><a href="#cb10-159" tabindex="-1"></a><span class="co">#&gt; # A tibble: 0 x 1</span></span>
-<span id="cb10-160"><a href="#cb10-160" tabindex="-1"></a><span class="co">#&gt; # i 1 variable: Species &lt;chr&gt;</span></span>
-<span id="cb10-161"><a href="#cb10-161" tabindex="-1"></a></span>
-<span id="cb10-162"><a href="#cb10-162" tabindex="-1"></a><span class="fu">intersect</span>(</span>
-<span id="cb10-163"><a href="#cb10-163" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
-<span id="cb10-164"><a href="#cb10-164" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
-<span id="cb10-165"><a href="#cb10-165" tabindex="-1"></a>)</span>
-<span id="cb10-166"><a href="#cb10-166" tabindex="-1"></a><span class="co">#&gt; # A tibble: 0 x 1</span></span>
-<span id="cb10-167"><a href="#cb10-167" tabindex="-1"></a><span class="co">#&gt; # i 1 variable: Species &lt;chr&gt;</span></span>
-<span id="cb10-168"><a href="#cb10-168" tabindex="-1"></a><span class="fu">setdiff</span>(</span>
-<span id="cb10-169"><a href="#cb10-169" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
-<span id="cb10-170"><a href="#cb10-170" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
-<span id="cb10-171"><a href="#cb10-171" tabindex="-1"></a>)</span>
-<span id="cb10-172"><a href="#cb10-172" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 1</span></span>
-<span id="cb10-173"><a href="#cb10-173" tabindex="-1"></a><span class="co">#&gt;   Species       </span></span>
-<span id="cb10-174"><a href="#cb10-174" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         </span></span>
-<span id="cb10-175"><a href="#cb10-175" tabindex="-1"></a><span class="co">#&gt; 1 g__Eubacterium</span></span>
-<span id="cb10-176"><a href="#cb10-176" tabindex="-1"></a><span class="fu">setdiff</span>(</span>
-<span id="cb10-177"><a href="#cb10-177" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
-<span id="cb10-178"><a href="#cb10-178" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
-<span id="cb10-179"><a href="#cb10-179" tabindex="-1"></a>)</span>
-<span id="cb10-180"><a href="#cb10-180" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 1</span></span>
-<span id="cb10-181"><a href="#cb10-181" tabindex="-1"></a><span class="co">#&gt;   Species       </span></span>
-<span id="cb10-182"><a href="#cb10-182" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         </span></span>
-<span id="cb10-183"><a href="#cb10-183" tabindex="-1"></a><span class="co">#&gt; 1 g__Eubacterium</span></span></code></pre></div>
+<span id="cb10-85"><a href="#cb10-85" tabindex="-1"></a>p.species.lme <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">as.data.frame</span>(p.species.list.lme))</span>
+<span id="cb10-86"><a href="#cb10-86" tabindex="-1"></a>p.species.lme.adj <span class="ot">&lt;-</span></span>
+<span id="cb10-87"><a href="#cb10-87" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="fu">as.data.frame</span>(p.species.lme), <span class="at">var =</span> <span class="st">&quot;Species&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>Species, <span class="sc">~</span><span class="fu">p.adjust</span>(., <span class="st">&quot;fdr&quot;</span>)))</span>
+<span id="cb10-88"><a href="#cb10-88" tabindex="-1"></a></span>
+<span id="cb10-89"><a href="#cb10-89" tabindex="-1"></a><span class="co"># write.csv(p.species.lme.adj,file=paste(&#39;4_Results/Real_Data_Estimation_Results_antiTNF_EEN_LME.csv&#39;,sep=&#39;&#39;))</span></span>
+<span id="cb10-90"><a href="#cb10-90" tabindex="-1"></a></span>
+<span id="cb10-91"><a href="#cb10-91" tabindex="-1"></a><span class="do">####</span></span>
+<span id="cb10-92"><a href="#cb10-92" tabindex="-1"></a><span class="fu">intersect</span>(</span>
+<span id="cb10-93"><a href="#cb10-93" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
+<span id="cb10-94"><a href="#cb10-94" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
+<span id="cb10-95"><a href="#cb10-95" tabindex="-1"></a>)</span>
+<span id="cb10-96"><a href="#cb10-96" tabindex="-1"></a><span class="co">#&gt; character(0)</span></span>
+<span id="cb10-97"><a href="#cb10-97" tabindex="-1"></a><span class="fu">setdiff</span>(</span>
+<span id="cb10-98"><a href="#cb10-98" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
+<span id="cb10-99"><a href="#cb10-99" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
+<span id="cb10-100"><a href="#cb10-100" tabindex="-1"></a>)</span>
+<span id="cb10-101"><a href="#cb10-101" tabindex="-1"></a><span class="co">#&gt; [1] &quot;g__Ruminococcus&quot;     &quot;g__Faecalibacterium&quot; &quot;g__Bifidobacterium&quot; </span></span>
+<span id="cb10-102"><a href="#cb10-102" tabindex="-1"></a><span class="co">#&gt; [4] &quot;g__Dialister&quot;        &quot;g__Streptococcus&quot;    &quot;g__Haemophilus&quot;     </span></span>
+<span id="cb10-103"><a href="#cb10-103" tabindex="-1"></a><span class="co">#&gt; [7] &quot;g__Alistipes&quot;</span></span>
+<span id="cb10-104"><a href="#cb10-104" tabindex="-1"></a><span class="fu">setdiff</span>(</span>
+<span id="cb10-105"><a href="#cb10-105" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
+<span id="cb10-106"><a href="#cb10-106" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Treat <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
+<span id="cb10-107"><a href="#cb10-107" tabindex="-1"></a>)</span>
+<span id="cb10-108"><a href="#cb10-108" tabindex="-1"></a><span class="co">#&gt; character(0)</span></span>
+<span id="cb10-109"><a href="#cb10-109" tabindex="-1"></a></span>
+<span id="cb10-110"><a href="#cb10-110" tabindex="-1"></a><span class="fu">intersect</span>(</span>
+<span id="cb10-111"><a href="#cb10-111" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
+<span id="cb10-112"><a href="#cb10-112" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
+<span id="cb10-113"><a href="#cb10-113" tabindex="-1"></a>)</span>
+<span id="cb10-114"><a href="#cb10-114" tabindex="-1"></a><span class="co">#&gt; character(0)</span></span>
+<span id="cb10-115"><a href="#cb10-115" tabindex="-1"></a><span class="fu">setdiff</span>(</span>
+<span id="cb10-116"><a href="#cb10-116" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
+<span id="cb10-117"><a href="#cb10-117" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
+<span id="cb10-118"><a href="#cb10-118" tabindex="-1"></a>)</span>
+<span id="cb10-119"><a href="#cb10-119" tabindex="-1"></a><span class="co">#&gt; [1] &quot;g__Eubacterium&quot;</span></span>
+<span id="cb10-120"><a href="#cb10-120" tabindex="-1"></a><span class="fu">setdiff</span>(</span>
+<span id="cb10-121"><a href="#cb10-121" tabindex="-1"></a>  p.species.lme.adj[p.species.lme.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>],</span>
+<span id="cb10-122"><a href="#cb10-122" tabindex="-1"></a>  p.species.zibr.adj[p.species.zibr.adj<span class="sc">$</span>Time <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">&quot;Species&quot;</span>]</span>
+<span id="cb10-123"><a href="#cb10-123" tabindex="-1"></a>)</span>
+<span id="cb10-124"><a href="#cb10-124" tabindex="-1"></a><span class="co">#&gt; [1] &quot;g__Eubacterium&quot;</span></span></code></pre></div>
 </div>
 
 

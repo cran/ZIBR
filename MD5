@@ -1,7 +1,7 @@
-c420cb9fa80ac9d1da50ec0c4597fb46 *DESCRIPTION
+76307885486cb3b5d867b2ef55575baa *DESCRIPTION
 f361032a54135c88d1c3dcbc59a71cf8 *LICENSE
 244185310e0b06c7a7afc9e6f9020f68 *NAMESPACE
-41e099773b4a79b0a76af1efa7812de1 *NEWS.md
+76edd263b11d8df82868d14218c41b40 *NEWS.md
 4fddf92ec5dbd717c297f6a9483191b7 *R/data.R
 4d9c8c027acd97a6bc2d7a8bf0535118 *R/fit_beta_regression_random_effect.R
 27cc9aa04c576371e6d758dba10af0c8 *R/fit_logistic_regression_random_effect.R
@@ -10,12 +10,12 @@ e3716f683194f72e77ce6441e84370f5 *R/simulate_beta_data.R
 c6f61740aad01c7f5023286759f4ecae *R/simulate_logistic_data.R
 d9721a9124a0b58c4cce80aabbe38c11 *R/simulate_zero_inflated_beta_data.R
 548aba0fe070d67eeac0f0f20bef5023 *R/zibr.R
-6ffa5eba9fbfa4377cda721929713f36 *README.md
-3c6c84fa29d0e09ee3bf22fe2a232b6b *build/vignette.rds
+dc1e9705d2c04488d60723d291d6f346 *README.md
+55b297682952cc722db9623a0545d40e *build/vignette.rds
 ce3f7584dd90864b51c67bce805550a7 *data/ibd.rda
-6dacdcfd6ff88df0a7227549dfc22c03 *inst/doc/zibr.R
-56c6c322ee13b2540fab7b996a126c87 *inst/doc/zibr.Rmd
-c0e7066ce0ad7a6d3ffd9ee9bd25eff6 *inst/doc/zibr.html
+81dcfd443d0b4b98f9f55bb3a16e6fb1 *inst/doc/zibr.R
+528ae551f892fcda4eaa990c2dde34ae *inst/doc/zibr.Rmd
+7d7c911690666b89117b731c313657fd *inst/doc/zibr.html
 5f2d583b102d61fbcd744d20796e9666 *man/fit_beta_random_effect.Rd
 aa8b992576cb9a3e2a0ed22c2490458c *man/fit_logistic_random_effect.Rd
 428ce8e18798e04cdb21604b5dab2236 *man/fit_zero_inflated_beta_random_effect.Rd
@@ -27,5 +27,5 @@ a3a4b50dcdb3f1cb0a915369aa7609ca *man/simulate_logistic_data.Rd
 282ccb9a76c27e1b2ea50d36a354a97a *tests/testthat.R
 d4a7352d740b216f5514699c7da78965 *tests/testthat/test-simulations.R
 42ec03cfc92899a5c3678fefdaa597a9 *tests/testthat/test-zibr.R
-56c6c322ee13b2540fab7b996a126c87 *vignettes/zibr.Rmd
+528ae551f892fcda4eaa990c2dde34ae *vignettes/zibr.Rmd
 f34d50ef8116aae2026615fc902b0466 *vignettes/zibr_stat_model.png
